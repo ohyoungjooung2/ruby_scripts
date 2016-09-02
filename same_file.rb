@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+require "./order.rb"
+
 files=`find . -type f | xargs stat -c "%s %n"`
 s=files.split("\n")
 #p s
@@ -36,20 +38,6 @@ end
 
 z=0
 
-#
-def order
- a=argv[1]
- if a == 1
-   puts "first"
- elsif a==2
-   puts "second"
- elsif a==3
-   puts "third"
- else
-   puts "{a}st"
- end
-end
-   
 
 #Getting uniq values of each hash value
 u=h.values.uniq
@@ -59,7 +47,10 @@ while z < h.size
  if same_files.size >= 2
    fs=0
    while fs < same_files.size
-    puts  "same_file size with #{u[z]} bytes , #{fs+1}st files #{same_files.keys[fs]}"
+    count=fs+1
+    count=order count 
+    #puts  "same_file size with #{u[z]} bytes , #{order fs+1} files #{same_files.keys[fs]}"
+    puts  "same_file size with #{u[z]} bytes , #{count} file is #{same_files.keys[fs]}"
     fs+=1
    end
  end
