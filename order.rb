@@ -12,5 +12,3 @@ def order(a)
    a="#{a}th"
  end
 end
-
-order(1)
