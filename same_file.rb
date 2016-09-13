@@ -1,9 +1,14 @@
 #!/usr/bin/env ruby
-require "./order.rb"
 
-files=`find . -type f | xargs stat -c "%s %n"`
+#Directory as argument
+d=ARGV[0]
+require "./order.rb"
+if ! d
+ d="."
+end
+
+files=`find #{d} -type f | xargs stat -c "%s %n" 2>/dev/null`
 s=files.split("\n")
-#p s
 
 sk=[]
 sv=[]
@@ -15,11 +20,6 @@ while i < s_size
   sv<<s[i].split(" ")[0]
   i+=1
 end
-# files name as a  array sk
-#p sk
-#puts ""
-# files size as a array sv
-#p sv
 
 
 #Creating hash
@@ -33,11 +33,8 @@ while j < sv.size
   j+=1
 end
 
-#Putting h hash
-#puts h
 
 z=0
-
 
 #Getting uniq values of each hash value
 u=h.values.uniq
