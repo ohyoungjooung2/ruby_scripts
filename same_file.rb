@@ -7,7 +7,7 @@ if ! d
  d="."
 end
 
-files=`find #{d} -type f | xargs stat -c "%s %n" 2>/dev/null`
+files=`find #{d} -type f | xargs stat -c "%s %n" 2> /dev/null`
 s=files.split("\n")
 
 sk=[]
