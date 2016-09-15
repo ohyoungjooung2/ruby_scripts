@@ -1,8 +1,20 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 #This script is for installing and compling ruby from source.
 #Each version is $1
 #Ruby current stable version is 2.3.1
-chmod 700 pre_ruby_install.sh
+set -x
+
+##Remove dir includes previous sources and etc.
+
+. ./rm_pre.sh
+
+
+PSCRIPT="./pre_ruby_install.sh"
+if [[ ! -x $PSCRIPT ]]
+then 
+  chmod 700 pre_ruby_install.sh
+fi
+#Execute pre script to get and compile each ruby versions.
 . ./pre_ruby_install.sh
 
 RUBIES="rubies"
@@ -35,6 +47,8 @@ install(){
 }
 
 check_ruby_dir
+
+ 
 
 #cd to /tmp
 cd /tmp
