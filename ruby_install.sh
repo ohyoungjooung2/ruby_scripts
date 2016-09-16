@@ -28,11 +28,9 @@ check_ruby_dir(){
  fi
 }
 
-
-
 install(){
  wget $RUBY_URL
- VERSION=$(echo $RUBY_URL | awk -F '/' '{print $7}' | awk -F '.tar.gz' '{print $1}')
+ VERSION=$(echo $RUBY_URL | awk -F '/' '{print $7}' | awk -F '.tar.gz' '{print $                                 1}')
  tar xvzf "$VERSION.tar.gz"
  cd $VERSION
  RUBY_EACH_HOME=$RUBY_DIR/$VERSION
@@ -42,8 +40,7 @@ install(){
  #removing sourcedir
  rm -rf $VERSION
  sleep 1
- #touch $HOME/.bashrc
- . ./bash_confirm.sh
+ touch $HOME/.bashrc
  echo "export PATH=$RUBY_EACH_HOME/bin:$PATH" >> $HOME/.bashrc
  cd $HOME; . .bashrc
 
@@ -75,7 +72,3 @@ else
  echo "Usage: chmod a+x $0; and ./$0 ruby version(2.0.0-p598,2.1.0,2.2.0)"
  exit 1
 fi
-
-
-#To add auto completion function into irb file
-. ./add_completion.rb
