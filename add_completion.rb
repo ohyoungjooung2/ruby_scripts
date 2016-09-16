@@ -14,9 +14,14 @@ irb_file=`which irb`.gsub("\n","")
 irb_file_arr=File.open(irb_file,"r").readlines
 
 check_comp=irb_file_arr.include?("require \"irb/completion\"\n")
- if check_comp != true
+
+if check_comp != true
   #To find index of require irb lines (index)
   req_irb_index=irb_file_arr.index("require \"irb\"\n")
+  if req_irb_index == nil
+     puts "Oops! something is wrong"
+     exit
+  end 
 
   #To insert "irb/completion" after req_irb_index content
   new_irb_array=irb_file_arr.insert(req_irb_index+1,"require \"irb/completion\"\n")
@@ -33,4 +38,6 @@ check_comp=irb_file_arr.include?("require \"irb/completion\"\n")
   puts "Successful of adding completion function into irb file"
 else
   puts "Completion function already added into irb file"
+  #clear array from memory
+  irb_file_arr.clear
 end
