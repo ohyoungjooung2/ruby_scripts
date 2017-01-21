@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -x
 if [[ -e /etc/redhat-release ]]
 then
   sudo yum update
