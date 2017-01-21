@@ -2,8 +2,9 @@
 # To insert require irb/completion
 # First install readline.rb
 # To check rb-readline gem installed?
-check_rl=system('gem list | grep rb-readline 1>/dev/null')
-if ! check_rl
+check_rl=`gem list | grep rb-readline 2>/dev/null`
+puts check_rl
+if  (check_rl=="")
  system('gem install rb-readline -V')
 end
 

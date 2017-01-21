@@ -41,7 +41,7 @@ remove_pre_installed(){
     read answer
     if [[ $answer=="y" || $answer=="Y" || $answer=="Yes" ]]
     then
-       rm -rfpv $RUBY_DIR/$VERSION
+       rm -rfv $RUBY_DIR/$VERSION
        echo "success of previous $VERSION"
     fi
  fi
