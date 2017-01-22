@@ -9,7 +9,7 @@ then
 elif [[ `cat /proc/version | egrep -i "ubuntu|debian"` != "" ]]
 then
   sudo apt-get -y update
-  sudo apt-get -y install libc6-dev libgdbm-dev libreadline-dev libmysql++-dev libsqlite3-dev make build-essential libssl-dev libreadline6-dev zlib1g-dev libyaml-dev
+  sudo apt-get -y install libc6-dev libgdbm-dev libreadline-dev libmysql++-dev libsqlite3-dev make build-essential libssl-dev libreadline6-dev zlib1g-dev libyaml-dev ruby
   echo "installing necessary packages"
   sleep 3
 fi
