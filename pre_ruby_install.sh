@@ -2,8 +2,8 @@
 set -x
 if [[ -e /etc/redhat-release ]]
 then
-  sudo yum -y update
-  sudo yum -y install wget gcc openssl-devel libffi-devel ruby 
+  sudo yum -y -q update
+  sudo yum -y -q install wget gcc openssl-devel libffi-devel ruby 
   echo "installing necessary packages"
   sleep 3
 elif [[ `cat /proc/version | egrep -i "ubuntu|debian"` != "" ]]
