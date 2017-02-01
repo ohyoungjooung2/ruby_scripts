@@ -84,6 +84,7 @@ done
 
 
 install(){
+  check_ruby_dir
   ruby_list
   if [[ $NUMBER != "" ]]
   then
